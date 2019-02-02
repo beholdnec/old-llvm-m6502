@@ -28,7 +28,7 @@ M6502TargetMachine::M6502TargetMachine(const Target &T, const Triple &TT,
     : LLVMTargetMachine(T, "e-p:16:8-n8", TT, CPU, FS, Options,
                         RM.getValueOr(Reloc::Static),
                         CM.getValueOr(CodeModel::Small), OL),
-      TLOF(std::make_unique<M6502TargetObjectFile>()),
+      TLOF(llvm::make_unique<M6502TargetObjectFile>()),
       Subtarget(TT, CPU, FS, *this) {
 
   initAsmInfo();
